@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form id="createSentence">
+    <button id="addSentence" class="btn btn-primary">Add sentence</button>
+</form>
+<br />
+<form id="startTraining">
+    <button id="start" class="btn btn-primary">Start training</button>
+</form>
+
+@section Scripts
+{
+    <script>
+        $('#addSentence').on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Index", "Home")',
+                data: $('#createSentence').serialize()
+            })
+        });
+
+        $('#startTraining').on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Index", "Home")',
+                data: $('#start').serialize()
+            })
+        });
+    </script>
+}
