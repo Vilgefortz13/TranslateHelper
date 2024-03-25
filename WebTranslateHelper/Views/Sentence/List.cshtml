@@ -1,0 +1,24 @@
+﻿@model List<WebTranslateHelper.Models.Entities.Sentence>
+
+<h1>Sentences</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Foreign Sentence</th>
+            <th>Native Sentence</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sentence in Model)
+        {
+            <tr>
+                <td>@sentence.Id</td>
+                <td>@sentence.ForeignSentence</td>
+                <td>@sentence.NativeSentece</td>
+            </tr>
+        }
+    </tbody>
+</table>
