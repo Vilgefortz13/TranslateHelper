@@ -14,27 +14,3 @@
     <a class="btn btn-primary" asp-controller="Sentence" asp-action="AddSentence">Add Sentence</a>
     <a class="btn btn-primary ms-2" asp-controller="Sentence" asp-action="List">List of sentences</a>
 </div>
-
-
-@section Scripts
-{
-    <script>
-        $('#addSentence').on('click', function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("Index", "Home")',
-                data: $('#createSentence').serialize()
-            })
-        });
-
-        $('#startTraining').on('click', function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("Index", "Home")',
-                data: $('#start').serialize()
-            })
-        });
-    </script>
-}
