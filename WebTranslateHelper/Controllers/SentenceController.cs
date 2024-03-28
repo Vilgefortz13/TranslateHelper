@@ -42,5 +42,11 @@ namespace WebTranslateHelper.Controllers
             var sentences = await dbContext.Sentences.ToListAsync();
             return View(sentences);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> StartTraining()
+        {
+            return View();
+        }
     }
 }
