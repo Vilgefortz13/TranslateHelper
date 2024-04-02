@@ -27,7 +27,7 @@ namespace WebTranslateHelper.Controllers
             var sentence = new Sentence
             {
                 ForeignSentence = viewModel.ForeignSentence,
-                NativeSentece = viewModel.NativeSentence
+                NativeSentence = viewModel.NativeSentence
             };
 
             await dbContext.Sentences.AddAsync(sentence);
@@ -46,7 +46,27 @@ namespace WebTranslateHelper.Controllers
         [HttpGet]
         public async Task<IActionResult> StartTraining()
         {
-            return View();
+            var sentences = await dbContext.Sentences.ToListAsync();
+
+            Random random = new();
+            int randomSentenceIndex = random.Next(sentences.Count);
+
+            return View(sentences[randomSentenceIndex]);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StartTraining(AddSentenceWithModel viewModel)
+        {
+            var sentence = new Sentence
+            {
+                ForeignSentence = viewModel.ForeignSentence,
+                NativeSentence = viewModel.NativeSentence
+            };
+            var sentences = await dbContext.Sentences.ToListAsync();
+
+            Random random = new();
+            int randomSentenceIndex = random.Next(sentences.Count);
+            return View(sentences[randomSentenceIndex]);
         }
     }
 }

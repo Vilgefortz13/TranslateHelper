@@ -32,9 +32,10 @@ namespace WebTranslateHelper.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NativeSentece")
+                    b.Property<string>("NativeSentence")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("NativeSentence");
 
                     b.HasKey("Id");
 

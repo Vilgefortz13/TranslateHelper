@@ -4,6 +4,6 @@
     {
         public Guid Id { get; set; }
         public string ForeignSentence { get; set; }
-        public string NativeSentece { get; set; }
+        public string NativeSentence { get; set; }
     }
 }

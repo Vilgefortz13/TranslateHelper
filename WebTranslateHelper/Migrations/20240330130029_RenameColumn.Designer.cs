@@ -12,8 +12,8 @@ using WebTranslateHelper.Data;
 namespace WebTranslateHelper.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240324124914_Second Try")]
-    partial class SecondTry
+    [Migration("20240330130029_RenameColumn")]
+    partial class RenameColumn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,9 +35,10 @@ namespace WebTranslateHelper.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NativeSentence")
+                    b.Property<string>("NativeSentece")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("NativeSentence");
 
                     b.HasKey("Id");
 
