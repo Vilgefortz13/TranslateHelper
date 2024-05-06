@@ -43,27 +43,19 @@ namespace WebTranslateHelper.Controllers
             return View(sentences);
         }
 
-        private int GetRandomNumber(List<Sentence> sentences)
-        {
-            Random random = new();
-            int num = random.Next(sentences.Count);
-            return num;
-        }
-
         [HttpGet]
         public async Task<IActionResult> StartTraining()
         {
             var sentences = await dbContext.Sentences.ToListAsync();
-            int randomSentenceIndex = GetRandomNumber(sentences);
+            int randomSentenceIndex = new Random().Next(sentences.Count);
 
             return View(sentences[randomSentenceIndex]);
         }
 
         [HttpPost]
-        public async Task<IActionResult> StartTraining(string Id, string foreignSentence)
+        public IActionResult StartTraining(string Id, string foreignSentence)
         {
-            var sentences = await dbContext.Sentences.ToListAsync();
-            var sentence = sentences[GetRandomNumber(sentences)].ForeignSentence;
+
             if (Id == foreignSentence)
             {
                 return Content("Right");
@@ -72,6 +64,7 @@ namespace WebTranslateHelper.Controllers
             {
                 return Content("Incorrect");
             }
+
         }
     }
 }

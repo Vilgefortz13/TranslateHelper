@@ -3,7 +3,7 @@
     public class Sentence
     {
         public Guid Id { get; set; }
-        public string ForeignSentence { get; set; }
-        public string NativeSentence { get; set; }
+        public required string ForeignSentence { get; set; }
+        public string? NativeSentence { get; set; }
     }
 }
